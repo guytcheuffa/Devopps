@@ -4,7 +4,7 @@ const app = express();
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-  res.send('DevOps Labs!');
+  res.send('Hello, World!');
 });
 
 app.get('/name/:name', (req, res) => {
