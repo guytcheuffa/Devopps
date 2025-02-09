@@ -1,12 +1,14 @@
-const http = require('http');
+const express = require('express');
 
-const server = http.createServer((req, res) => {
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
+const app = express();
+app.set('view engine', 'ejs');
+
+app.get('/', (req, res) => {
   res.send('DevOps Labs!');
 });
 
-const port = process.env.PORT || 8080;
-server.listen(port,() => {
-  console.log(`Listening on port ${port}`);
+app.get('/name/:name', (req, res) => {
+  res.render('hello', {name: req.params.name});
 });
 
+module.exports = app;
